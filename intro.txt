@@ -1,0 +1,42 @@
+1) reactivity is the core feature of vue. when we create data property in vue behind the 
+   sens vue will assign the data property to global object
+
+2) and vue will wrap all data with feature called proxy which is built in js feature from 
+   es6 which will listen to all changes we do on any data and run getter and setter of it
+
+3) when data change vue will know about that change and also scan the html then all the place
+   where we use that data will re render with new data. you can learn more about proxy in
+   mdn official doc.
+
+4) like you are using id app and control that part of html in vue you can create as many 
+    vue control template as you want just keep in mind all the data, method and other property
+    you define in property will be only accessible to those apps you can't share them between
+    multiple apps or templates
+
+5) part we define inside id app which we control by vue is called template and mostly we
+   create one parent element with some id and we mount it with our vue app and all sub elements
+   of that app will be handled by vue. we are free to use multiple sub elements inside element
+   which we use to mount only in multi page apps in spa we have to use just one element 
+   as main in each component and then we can use multiple elements inside it so vue can 
+   know that which is the part it have to handle by provided bellow code.
+
+6) creating main element and mounting it with app and define all html template inside it in 
+   html or vue file is the most common way we use templating in our code but we can also
+   define template for app in our vue code as well by template property which we will use 
+   in 0.2% cases only but it is still worth to know. for ex see template html and js
+
+7) as you know vue will only update part of dom which is actually changed not entire dom or
+   html but you know how it dose that?
+   - vue will first scan file and all the special syntax like {{}} @click etc will be
+   convert to actual js properties like {{}} will replace with actual data value and @click
+   will be convert to js event listeners and then vue will dump all that to browser dom
+
+   - now vue will create the virtual dom which is just js file which has all things which
+   is present in actual browser dom and it will be in memory then when anything change in 
+   any property vue will create new copy of virtual dom and compare it to old one and where
+   it find difference it will only change those places in browser dom.
+
+   - because all this happen in memory of js engine it will way more efficient then other.
+   vue also do lots of other things for optimization but it's a general idea. 
+
+   

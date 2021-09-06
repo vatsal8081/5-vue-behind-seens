@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h3> Event </h3>
+        <input type="text" @input="eventInput">
+        <!-- as you know many times we want whole event which trigger when any event occur
+        in js so for that we can use event property in handler function of any event   
+        look at the code we use param event but we are not passing it from our template
+        vue will always provide to us on every event that occur and ve can get all
+        properties of event and element there-->
+
+        <!-- <input type="text" @input="eventInput($event)"> -->
+        <!-- many times it happen that we have to pass event and also some params to the
+        function so that time we can use $event reserve keyword to pass event and other
+        params value as well -->
+
+        <h3> Refs </h3>
+        <input type="text" ref="refInput">
+        <button @click="getRef"> get Element </button>
+        <!-- we will get new data when v-model chang, computed property change, event happen
+        but some times we want to grab any specific element from dom any time when we need
+        just like we do in normal js by getElementById and other methods for that vue provide
+        vary cool way which is called refs-->
+        <!-- we can use ref property in any html or dom element and we have to provide
+        it some unique name now vue will remember that element and store in $refs property
+        as object so we can get that element any time in our code just by this.$refs.propertyName 
+        wnd we will get and set all the property available on that element just like normal js-->
+
+
+    </div>
+
+</body>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./refs.js"></script>
+
+</html>
