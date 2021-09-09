@@ -40,3 +40,40 @@
    vue also do lots of other things for optimization but it's a general idea. 
 
    
+   // life cycle hooks
+   1) as like other frameworks vue also has it's on lifecycle for working. every vue app or a
+      component will go through lifecycle and many times we want to do some tasks on diffrent 
+      phases of the lifecycle of app or component
+
+   2) and to listern to those types of lifecycle and do some diffrent tasks on those phases
+      vue provide us hooks which called lifecycle hooks and those hooks are just functions 
+      you can say which will be execute on diffrent phases or lifecycle
+
+   3) vue has mostly 3 types of phases in vue app and components creation, updation, unmount every type contain some
+      phase has some hooks
+
+      1) creation
+         - beforeCreate()
+         - created()
+         - beforeMount()
+         - mounted()
+
+      2) updation
+         - beforeUpdate()
+         - updated()
+
+      3) unmount
+         - beforeUnmount()
+         - unmount()      
+
+   4) hear creation and unmount phases will happen only once in every app or component but
+      the updation phase can happen n number of times in any app or component. 
+
+   5) every lifecycle method automatically get this context so that you can access data, computed,
+      and methods in hooks. that mins you should not use arrow function to define any lifecycle
+      hook because an arrow function will not get this in it. you should use normal function like we
+      use in methods.  
+      
+      
+      we will discuss
+      more about lifecycle hooks in lifecycleHooks files.
