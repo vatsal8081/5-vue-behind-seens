@@ -77,3 +77,54 @@
       
       we will discuss
       more about lifecycle hooks in lifecycleHooks files.
+      
+   // vary IMP
+   6) after learning about lifecycle hooks come hear again 
+   - try to execute this code 
+   data(){
+      return {
+         tmp: {one: "one"}
+      };
+   },
+
+// case 1
+   created() {
+      this.tmp.one = 'one changed'
+      this.tmp.two = 'two';
+    
+      setTimeout(() => {
+         this.tmp.two = 'two chnaged';
+      }, 5000)
+   }
+   
+// case 2
+   created() {
+      this.tmp.one = 'one changed'
+      setTimeout(() => {
+         this.tmp.two = {};
+         this.tmp.two.a = 'a'; 
+      }, 5000)
+   }
+   
+   
+   // in html
+   // case 1
+   {{ tmp.one }}
+   {{ tmp.two }}
+   
+   
+   // case 2
+   {{ tmp.one }}
+   {{ tmp.two.a }}
+   
+ //case 1
+- what you will se hear is we defien tmp as object which initiall not contain two property but we are adding it in creation time and then after 5 sec we are changing
+its value and outputing it in template and when the two chnage it also reflect in template that mins any time in our code if we add any new thing in object which is define 
+already but not contain that new key value pair still that new value will be reactive
+
+// case 2 
+in case 2 we are adding two and a in two after 5 sec to simulate api call taht mins it won't be avalable before 5 sec and we are using a which will be inside two after 5 sec in
+template so initeally it will give err that cannot read property a of undefine and after 5 sec it will render 
+hear problem is not because two will be not abalable before 5 sec if we print just tmp.tow in case two it won't give err but the problem is we are getting a from tow which is still not there it will be there after 5 sec bit template will be executed before that 
+so to avoid this kind of err if we are in vue 3 we can just use optional chaning like {{ tmp?.tow?.a }} and if we are in vue 2 we can use async pipe package or just use 
+{{ tmp.tow && tmp.tow.a ? tmp.tow.a : '' }} something like that but my advice is for vue 2 just use async pipe it will be more batter
